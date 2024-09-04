@@ -227,7 +227,7 @@ The playbook will automatically install Docker Engine and use the `compose.yml` 
 <br>
 All services should now be up and running!
 
-## Expose services through Cloudflare tunnels
+## 🚇 Expose services through Cloudflare tunnels
 > [!CAUTION] 
 > While Cloudflare provides some level of protection against threats, exposing a service to the internet still carries risks.
 > It is strongly recommended to implement additional security measures and consider isolating the host within a dedicated segment of your local network to protect it from other home devices. Proceed with caution and at your own risk.
