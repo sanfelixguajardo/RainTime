@@ -1,0 +1,196 @@
+.card {
+    width: 750px;
+    height: 200px;
+    border-radius: 2rem;
+    margin: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*box-shadow: 0 10px 30px -5px rgba(0,0,0,0.8);*/
+    position: relative;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, .6);
+    transition: all .5s ease;
+}
+
+.card:has(> .label .checkbox:checked) {
+    border-color: indianred;
+    box-shadow: inset 100px 100px 0px rgba(250, 95, 98, 0.7);
+}
+
+.label {
+    width: 50px;
+    height: 50px;
+    margin: 10px 10px;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.span {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 2em;
+    width: 2em;
+    background: #24252A;
+    border-radius: 100%;
+    transition: all 0.7s;
+}
+
+.span:after {
+    content: "";
+    position: absolute;
+    border: solid white;
+    border-width: 0 0.30em 0.30em 0;
+    transform: rotate(45deg);
+    width: 0.50em;
+    height: 1em;
+    left: 0.6em;
+    top: 0.25em;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.label .checkbox:checked ~ .span {
+    box-shadow: 0 0 10px 0 #09f;
+}
+
+.label .checkbox:checked ~ .span:after {
+    opacity: 1;
+}
+
+.programCard {
+
+}
+
+.inputFields {
+    display: flex;
+    margin: 10px 15px;
+    border-bottom: 2px solid white;
+    justify-content: space-between;
+}
+
+.nameInput,
+.durationInput,
+.hourInput {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin: 8px;
+    font-size: 15px;
+}
+
+.nameInput {
+    font-weight: bold;
+}
+
+.weekDays {
+    display: flex;
+    margin: 10px 10px;
+}
+
+.labelDay {
+    margin: 10px 10px;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+.square {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20%;
+    background-color: lightslategrey;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    overflow: hidden;
+    display: inline-block;
+    transition: all 0.7s;
+    box-shadow: 10px 10px 0px -5px rgba(0,0,0,0.8);
+}
+
+.labelDay .checkbox:checked ~ .square {
+    background-color: indianred;
+    border: 3px solid white;
+}
+
+.editSvg,
+.cancelSvg,
+.saveSvg,
+.deleteSvg {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    fill: white;
+}
+
+.but {
+    margin: 0 5px;
+    position: relative;
+    left: 280px;
+    background: transparent;
+    border: none;
+}
+
+.but:hover .editSvg{
+    fill: #0088a9;
+}
+
+.but:hover .cancelSvg{
+    fill: #0088a9;
+}
+
+.but:hover .saveSvg {
+    fill: mediumspringgreen;
+}
+
+.but:hover .deleteSvg {
+    fill: red;
+}
+
+.butAdd {
+    margin: 10px 10px;
+    background: #24252A;
+    border-radius: 100%;
+    border: none;
+    height: 40px;
+    width: 40px;
+    position: relative;
+}
+
+.addSvg {
+    fill: white;
+    opacity: 70%;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.butAdd:hover .addSvg {
+    fill: #0088a9;
+}
+
+.errMsg {
+    background: #fa4554;
+    position: relative;
+    border-radius: 40px;
+    top: -10px;
+}
+

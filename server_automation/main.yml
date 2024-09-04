@@ -1,0 +1,71 @@
+---
+- hosts: server
+  become: true
+
+  vars:
+    pip_install_packages:
+      - name: docker
+
+  vars_files:
+    - ./credentials.yml
+
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker
+
+  handlers:
+    - name: restart ssh
+      service:
+        name: sshd
+        state: restarted
+  tasks:
+    - name: Make sure SSH is more secure.
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: "{{ item.regexp }}"
+        line: "{{ item.line }}"
+        state: present
+        validate: 'sshd -T -f %s'
+      with_items:
+        - regexp: "^PasswordAuthentication"
+          line: "PasswordAuthentication no"
+        - regexp: "^#?PermitRootLogin"
+          line: "PermitRootLogin no"
+        - regexp: "^#?Port"
+          line: "Port 921"
+      notify: restart ssh
+
+    - name: Edit file permissions.
+      file:
+        path: /etc/ssh/sshd_config
+        mode: 0600
+
+    - name: Create directory for docker-compose.yml.
+      file:
+        path: "/home/{{ ansible_user }}/docker_projects/"
+        state: directory
+        mode: 0600
+
+    - name: Copy docker-compose.yml to server.
+      copy:
+        src: "./docker_compose/compose.yml"
+        dest: "/home/{{ ansible_user }}/docker_projects/compose.yml"
+
+    - name: Copy .env file to server.
+      copy:
+        src: "./docker_compose/.env"
+        dest: "/home/{{ ansible_user }}/docker_projects/.env"
+
+    - name: Login to docker hub.
+      docker_login:
+        username: "{{ docker_hub_username }}"
+        password: "{{ docker_hub_password }}"
+
+    - name: Execute docker-compose
+      command:
+        cmd: "docker-compose -f /home/{{ ansible_user }}/docker_projects/compose.yml up -d"
+      register: docker_compose_result
+      ignore_errors: true
+      until: docker_compose_result is success
+      retries: 3
+      delay: 10

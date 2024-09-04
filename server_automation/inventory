@@ -1,0 +1,9 @@
+[server]
+server.local
+
+[multi:children]
+server
+
+[multi:vars]
+ansible_ssh_user=pi
+ansible_port=22

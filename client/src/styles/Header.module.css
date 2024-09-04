@@ -1,0 +1,60 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.navBar {
+    list-style: none;
+    display: flex;
+}
+
+.navBar li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.navBarLink {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease 0s;
+}
+
+.navBarLink:hover {
+    color: #0088a9;
+}
+
+.navBarLink:hover .houseSolidSvg{
+    fill: #0088a9;
+}
+
+.navBarLink:hover .windowsSvg{
+    fill: #0088a9;
+}
+
+.navBarLink:hover .cloudSunSolidSvg{
+    fill: #0088a9;
+}
+
+.navBarLink:hover .seedlingSolidSvg{
+    fill: #0088a9;
+}
+
+.navBarLink:hover .videoSolidCss{
+    fill: #0088a9;
+}
+
+.houseSolidSvg,
+.cloudSunSolidSvg,
+.seedlingSolidSvg,
+.videoSolidCss,
+.windowsSvg {
+    width: 20px;
+    position: relative;
+    font-size: 1.6rem;
+    margin-top: 6px;
+    fill: white;
+}

@@ -1,0 +1,77 @@
+version: "3"
+services:
+  rabbitmq:
+    image: rabbitmq:3-alpine
+    networks:
+      - rabbitmq-net
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    healthcheck:
+      test: rabbitmq-diagnostics check_port_connectivity
+      interval: 1s
+      timeout: 3s
+      retries: 30
+
+  frontend-app:
+    image: sanfeps/raintime:frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - mern-app
+    environment:
+      REACT_APP_SERVER_IP: ${SERVER_IP}
+    cap_drop:
+      - ALL
+
+  server:
+    image: sanfeps/raintime:server
+    build: ./server/
+    ports:
+      - "3500:3500"
+    environment:
+      PORT: ${SERVER_PORT}
+      REACT_IP: ${REACT_IP}
+      REACT_DNS: ${REACT_DNS}
+      REACT_PORT: ${REACT_PORT}
+      RABBITMQ_PORT: ${RABBITMQ_PORT}
+      RABBITMQ_USER: ${RABBITMQ_USER}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
+      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET}
+      REFRESH_TOKEN_SECRET: ${REFRESH_TOKEN_SECRET}
+      DATABASE_URI: ${DATABASE_URI}
+
+    networks:
+      - mern-app
+      - rabbitmq-net
+      - cam
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    cap_drop:
+      - ALL
+
+  irrigationcontroller:
+    image: sanfeps/raintime:irrigationcontroller
+    environment:
+      TZ: ${TZ}
+      RABBITMQ_PORT: ${RABBITMQ_PORT}
+      RABBITMQ_USER: ${RABBITMQ_USER}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
+    networks:
+      - rabbitmq-net
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    cap_drop:
+      - ALL
+
+networks:
+  mern-app:
+    driver: bridge
+  rabbitmq-net:
+    driver: bridge
+
+
