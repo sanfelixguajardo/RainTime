@@ -2,8 +2,10 @@
 
 <br>
   <a href="#overview"><kbd> <br> Overview <br> </kbd></a>&ensp;&ensp;
+  <a href="#hardware setup"><kbd> <br> Hardware Setup <br> </kbd></a>&ensp;&ensp;
   <a href="#installation"><kbd> <br> Installation <br> </kbd></a>&ensp;&ensp;
-  <a href="#resources"><kbd> <br> Usage <br> </kbd></a>&ensp;&ensp;
+  <a href="#tunnel setup"><kbd> <br> Tunnel setup <br> </kbd></a>&ensp;&ensp;
+  <a href="#usage"><kbd> <br> Usage <br> </kbd></a>&ensp;&ensp;
   <a href="#resources"><kbd> <br> Resources <br> </kbd></a>&ensp;&ensp;
 </div><br><br>
 
