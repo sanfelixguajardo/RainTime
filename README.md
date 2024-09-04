@@ -1,12 +1,12 @@
 # RainTime
 
 <br>
-  <a href="#overview"><kbd> <br> Overview <br> </kbd></a>&ensp;&ensp;
-  <a href="#hardware setup"><kbd> <br> Hardware Setup <br> </kbd></a>&ensp;&ensp;
-  <a href="#installation"><kbd> <br> Installation <br> </kbd></a>&ensp;&ensp;
-  <a href="#tunnel setup"><kbd> <br> Tunnel setup <br> </kbd></a>&ensp;&ensp;
-  <a href="#usage"><kbd> <br> Usage <br> </kbd></a>&ensp;&ensp;
-  <a href="#resources"><kbd> <br> Resources <br> </kbd></a>&ensp;&ensp;
+  <a href="#-overview"><kbd> <br> Overview <br> </kbd></a>&ensp;&ensp;
+  <a href="#%EF%B8%8F-hardware-setup"><kbd> <br> Hardware Setup <br> </kbd></a>&ensp;&ensp;
+  <a href="#-installation"><kbd> <br> Installation <br> </kbd></a>&ensp;&ensp;
+  <a href="#-expose-services-through-cloudflare-tunnels"><kbd> <br> Tunnel setup <br> </kbd></a>&ensp;&ensp;
+  <a href="#-usage"><kbd> <br> Usage <br> </kbd></a>&ensp;&ensp;
+  <a href="#-resources"><kbd> <br> Resources <br> </kbd></a>&ensp;&ensp;
 </div><br><br>
 
 RainTime is an automated plant watering system that allows users to configure irrigation schedules through an app. Users can specify the days of the week and the exact time to water their plants. The system ensures that plants receive the right amount of water at the right time, providing convenience and helping to maintain healthy plant growth.
