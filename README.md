@@ -12,7 +12,7 @@
 RainTime is an automated plant watering system that allows users to configure irrigation schedules through an app. Users can specify the days of the week and the exact time to water their plants. The system ensures that plants receive the right amount of water at the right time, providing convenience and helping to maintain healthy plant growth.
 
 <p align="left">
-    <a href="https://github.com/sanfelixguajardo/RainTime/LICENSE">
+    <a href="https://github.com/sanfelixguajardo/RainTime/blob/main/LICENSE"> 
       <img alt="License" src="https://img.shields.io/github/license/sanfelixguajardo/RainTime?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
     </a>
     <a href="https://github.com/sanfelixguajardo/RainTime/stargazers">
