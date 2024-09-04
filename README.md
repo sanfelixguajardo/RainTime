@@ -24,7 +24,7 @@ RainTime is an automated plant watering system that allows users to configure ir
     </a>
 </p>
 
-## Overview
+## 🎯 Overview
 
 RainTime is composed of several modules, as shown in the image below. The complete system is designed to support remote access to the application using Cloudflare Tunnels, as well as automated deployment using Ansible and containerization with Docker.
 
@@ -34,7 +34,7 @@ RainTime is composed of several modules, as shown in the image below. The comple
 
 ![RainTime-Infrastructure](https://github.com/user-attachments/assets/5dde5736-bf70-48ff-9411-1ff021788b22)
 
-### Components
+### 🧲 Components
 
 | Component               | Description                                                                                                                                                                                                                                                                               |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -68,7 +68,52 @@ RainTime is composed of several modules, as shown in the image below. The comple
 
 <br>
 
-## Installation
+## ⚙️ Hardware Setup
+
+This section guides you through the assembly of the water pump with the Arduino board and provides the necessary steps to upload the code to the Arduino.
+
+**Components Needed:**
+- Arduino UNO board
+- Water pump
+- Relay module
+- Jumper wires
+- USB cable (to connect the Arduino to the host machine)
+
+**Wiring Instructions**
+- Connect the Relay Module to Arduino:
+    - Relay IN pin to Arduino digital pin 5 (or the pin defined in your code as `pinPumpV0`).
+    - Relay VCC pin to Arduino 5V.
+    - Relay GND pin to Arduino GND.
+- Connect the Water Pump to Relay:
+    - Water Pump positive wire to NO (Normally Open) terminal of the relay.
+    - Water Pump negative wire to common ground or GND of the power source.
+    - Make sure the power source for the water pump matches its specifications (typically 12V or 5V).
+
+**Uploading Code to Arduino**
+<br>
+File Location:
+`/arduino/water_pump_control.ino`
+
+**Steps to Upload the Code:**
+Download the .ino file from the repository or clone the entire repository to your local machine:
+````
+git clone https://github.com/yourusername/raintime.git
+````
+Open the Arduino IDE on your computer.
+
+Open the .ino file from the arduino directory:
+    Go to File > Open and navigate to ./arduino/water_pump_control.ino.
+
+Connect your Arduino UNO board to your computer using the USB cable.
+Select the correct board and port in the Arduino IDE:
+    - Go to Tools > Board > Arduino UNO.
+    - Go to Tools > Port > select the port your Arduino is connected to.
+
+Click the Upload button (right-arrow icon) in the Arduino IDE to upload the code to the board.
+
+<br>
+
+## 🚀 Installation
 
 This guide provides step-by-step instructions to install and deploy the project using Ansible automation and Docker containers from Docker Hub. The deployment can be done locally within your network or exposed to the internet via Cloudflare Tunnels.
 
@@ -203,56 +248,13 @@ The complete domain name should match those specified in the `.env` file.
 <br>
 You should now be able to acces your RainTime app from anywhere!
 
-## Hardware Setup
-
-This section guides you through the assembly of the water pump with the Arduino board and provides the necessary steps to upload the code to the Arduino.
-
-**Components Needed:**
-- Arduino UNO board
-- Water pump
-- Relay module
-- Jumper wires
-- USB cable (to connect the Arduino to the host machine)
-
-**Wiring Instructions**
-- Connect the Relay Module to Arduino:
-    - Relay IN pin to Arduino digital pin 5 (or the pin defined in your code as `pinPumpV0`).
-    - Relay VCC pin to Arduino 5V.
-    - Relay GND pin to Arduino GND.
-- Connect the Water Pump to Relay:
-    - Water Pump positive wire to NO (Normally Open) terminal of the relay.
-    - Water Pump negative wire to common ground or GND of the power source.
-    - Make sure the power source for the water pump matches its specifications (typically 12V or 5V).
-
-**Uploading Code to Arduino**
-<br>
-File Location:
-`/arduino/water_pump_control.ino`
-
-**Steps to Upload the Code:**
-Download the .ino file from the repository or clone the entire repository to your local machine:
-````
-git clone https://github.com/yourusername/raintime.git
-````
-Open the Arduino IDE on your computer.
-
-Open the .ino file from the arduino directory:
-    Go to File > Open and navigate to ./arduino/water_pump_control.ino.
-
-Connect your Arduino UNO board to your computer using the USB cable.
-Select the correct board and port in the Arduino IDE:
-    - Go to Tools > Board > Arduino UNO.
-    - Go to Tools > Port > select the port your Arduino is connected to.
-
-Click the Upload button (right-arrow icon) in the Arduino IDE to upload the code to the board.
-
-## Usage
+## 🔫 Usage
 Access your Frontend application from any browser. After logging in with your account, navigate to the Gardening tab 🌱 to manage your watering programs. 
 Click the `+` icon to create a new program. You can specify the days of the week, the time of day, and the duration for watering. Once saved, the program will automatically activate the water pump connected to the Arduino board at the scheduled times.
 
 See GIF demonstration for more details.
 
-## Resources
+## 📚 Resources
 - [Node.js series by Dave Gray](https://www.youtube.com/watch?v=JZXQ455OT3A&list=PL0Zuz27SZ-6PFkIxaJ6Xx_X46avTM1aYw)
 - [React.js series by Dave Gray](https://www.youtube.com/watch?v=TeeAp5zkYnI&list=PL0Zuz27SZ-6PrE9srvEn8nbhOOyxnWXfp)
 - [Docker Security Essentials by HackerSploit](https://www.youtube.com/watch?v=KINjI1tlo2w&list=PLBf0hzazHTGNv0-GVWZoveC49pIDHEHbn)
