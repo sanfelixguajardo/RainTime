@@ -265,5 +265,5 @@ See GIF demonstration for more details.
 
 <div align="right">
   <br>
-  <a href="#overview"><kbd> <br> 🡅 <br> </kbd></a>
+  <a href="#-overview"><kbd> <br> 🡅 <br> </kbd></a>
 </div>
