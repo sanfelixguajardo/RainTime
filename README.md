@@ -34,7 +34,7 @@ RainTime is composed of several modules, as shown in the image below. The comple
 > If you want to run the project locally and allow access only to devices on the same local network, certain modules and steps can be omitted.
 
 
-![RainTime-Infrastructure](https://github.com/sanfelixguajardo/RainTime/assets/RainTime-Infrastructure)
+![RainTime-Infrastructure](https://github.com/sanfelixguajardo/RainTime/blob/main/assets/RainTime-Infrastructure.png) 
 
 ### 🧲 Components
 
