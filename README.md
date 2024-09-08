@@ -167,7 +167,7 @@ cd raintime
 4. **Configure ansible**
 - Edit inventory file and specify host ssh user and port
 ```
-nano ./server_automation/inventory
+nano ./src/server_automation/inventory
 ````
 > [!NOTE] 
 > SSH uses port 22 by default
@@ -181,23 +181,23 @@ nano ./server_automation/inventory
 - Edit and run the `initializeUser.js` to register a new user by changing the `username` and `pwd` variables, the script will automatically encript the password. It is also necesary to copy de data base URI.
   - Install node dependencies.
   ```
-  cd ./server/
+  cd ./src/server/
   npm install
   ````
   - Edit the script.
   ```
-  nano ./server/controllers/initializeUser.js
+  nano ./src/server/controllers/initializeUser.js
   ````
   - Run the script.
   ```
-  npm ./server/controllers/initializeUser.js
+  npm ./src/server/controllers/initializeUser.js
   ````
 
 Alternatively, it is posible to create a new users collection and a user manually through Atlas GUI.
 
 6. **Configure the environment variables**
 ```
-nano ./server_automation/docker_compose/.env
+nano ./src/server_automation/docker_compose/.env
 ````
 
  Component                        | Description                                                                                                                                                                                                                                                                                                |  
@@ -211,6 +211,7 @@ nano ./server_automation/docker_compose/.env
 
 6. Run ansible playbook `main.yml`
 ```
+cd ./src/server_automation/
 ansible-playbook main.yml
 ````
 The playbook will automatically install Docker Engine and use the `compose.yml` file to pull the necessary images from Docker Hub and start the services.
