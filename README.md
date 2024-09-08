@@ -94,7 +94,7 @@ This section guides you through the assembly of the water pump with the Arduino 
 **Uploading Code to Arduino**
 <br>
 File Location:
-`/arduino/water_pump_control.ino`
+`/src/arduino/water_pump_control.ino`
 
 **Steps to Upload the Code:**
 Download the .ino file from the repository or clone the entire repository to your local machine:
