@@ -99,7 +99,7 @@ File Location:
 **Steps to Upload the Code:**
 Download the .ino file from the repository or clone the entire repository to your local machine:
 ````
-git clone https://github.com/yourusername/raintime.git
+git clone https://github.com/sanfelixguajardo/raintime.git
 ````
 Open the Arduino IDE on your computer.
 
